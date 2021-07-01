@@ -9,9 +9,10 @@ const signer = provider.getSigner();
 const contract = _contract.connect(signer);
 
 console.log(provider);
+console.log(provider.provider.selectedAddress);
 
 const useContract = () => {
-  return [contract];
+  return [contract, provider.provider.selectedAddress];
 };
 
 export default useContract;
