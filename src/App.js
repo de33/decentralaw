@@ -128,15 +128,17 @@ const App = () => {
               <li>Editor</li>
             </NavLink>
           </NavUnlisted>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/about" exact component={About} />
-            <Route path="/roadmap" exact component={Roadmap} />
-            <Route path="/quickstart" exact component={Quickstart} />
-            <Route path="/explorer" exact component={Explorer} />
-            <Route path="/app" exact component={Editor} />
-            <Route path="*" exact component={Home} />
-          </Switch>
+          <div className="main">
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/about" exact component={About} />
+              <Route path="/roadmap" exact component={Roadmap} />
+              <Route path="/quickstart" exact component={Quickstart} />
+              <Route path="/explorer" exact component={Explorer} />
+              <Route path="/app" exact component={Editor} />
+              <Route path="*" exact component={Home} />
+            </Switch>
+          </div>
         </Router>
       </Store>
     </Web3ReactProvider>

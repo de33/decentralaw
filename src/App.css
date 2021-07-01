@@ -24,3 +24,14 @@ walletDiv {
   position: relative;
   top: -5px;
 }
+
+.signButton,
+p {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px 0;
+}
+
+.main {
+  margin-left: 15px;
+}

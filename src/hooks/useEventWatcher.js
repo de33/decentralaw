@@ -11,26 +11,24 @@ export const useEventWatcher = (eventName) => {
     const pastEvents = await contract.queryFilter(eventName);
     return pastEvents;
   };
-  //   const pastSignEvents = contract.queryFilter(eventName);
-  // useEffect(() => {
 
-  // })
   const listener = async (...args) => {
-    console.log(args);
-    const decoder = new utils.AbiCoder();
+    // console.log(args);
     const pastSignEvents = await getPastEvents();
-    console.log(pastSignEvents);
-    // debugger;
-    const [[keccakedHash, address]] = pastSignEvents.map((log) => {
-      const _address = log.args.contractSigner;
-      const _keccakedHash = log.args.ipfsHash.hash;
+    const currentEventCount = parseInt(localStorage.getItem("eventCounter"));
+    const newEventCount = pastSignEvents.length;
 
-      return [_keccakedHash, _address];
-    });
+    if (currentEventCount !== newEventCount) {
+      const recentEvents = pastSignEvents.slice(newEventCount - 2);
+      recentEvents.forEach((log) => {
+        // debugger;
+        const address = log.args.contractSigner;
+        const keccakedHash = log.args.ipfsHash.hash;
 
-    // console.log(hopefulMapping);
-    // debugger;
-    actions.setSigningStatus(keccakedHash, address);
+        actions.setSigningStatus(keccakedHash, address);
+      });
+      localStorage.setItem("eventCounter", newEventCount);
+    }
   };
 
   contract.on(eventName, listener);

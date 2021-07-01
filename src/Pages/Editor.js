@@ -4,6 +4,7 @@ import { create } from "ipfs-http-client";
 import "react-quill/dist/quill.snow.css";
 import { Context } from "../Store";
 import Button from "react-bootstrap/Button";
+import { NavLink } from "react-router-dom";
 
 const Editor = () => {
   const [text, setText] = useState("Type your contract here...");
@@ -115,9 +116,9 @@ const Editor = () => {
             <p>{getContracts()}</p> */}
             <div className="alert alert-success" role="alert">
               Success! Your contract is stored and ready to sign in the{" "}
-              <a href="/explorer" class="alert-link">
+              <NavLink to="/explorer" className="alert-link">
                 Explorer
-              </a>
+              </NavLink>
             </div>
           </div>
         )}
