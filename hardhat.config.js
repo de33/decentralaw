@@ -1,3 +1,4 @@
+//require("dotenv").config();
 require("@nomiclabs/hardhat-waffle");
 
 // This is a sample Hardhat task. To learn how to create your own go to
@@ -21,9 +22,8 @@ module.exports = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {},
-    // kovan: {
-    //   url: "https://eth-mainnet.alchemyapi.io/v2/123abc123abc123abc123abc123abcde",
-    //   accounts: [privateKey1, privateKey2, ...]
+    // rinkeby: {
+    //   url: `https://mainnet.infura.io/v3/${process.env.INFURA_ACCESS_TOKEN}`
     // }
   },
 };

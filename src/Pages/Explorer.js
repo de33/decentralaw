@@ -3,7 +3,6 @@ import { Context } from "../Store";
 import useContract from "../hooks/useContract";
 import Button from "react-bootstrap/Button";
 import { useEventWatcher } from "../hooks/useEventWatcher";
-import "../App.css";
 
 const Explorer = () => {
   const [state] = useContext(Context);
