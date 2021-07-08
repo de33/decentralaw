@@ -7,7 +7,7 @@ const initialState = {
       { address: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8", signed: false },
       { address: "0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc", signed: false },
     ],
-    Qmd3ghjLAkURqqVP2ebGKRd2KZuPXsndG8f62e6Q94exe6: [
+    QmNvhVFvpshNVTBg7ZR826UiAEGxq3ijqMDWuohFDWPF9P: [
       { address: "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199", signed: false },
       { address: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", signed: false },
     ],

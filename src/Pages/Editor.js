@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import { NavLink } from "react-router-dom";
 
 const Editor = () => {
-  const [text, setText] = useState("Type your contract here...");
+  const [text, setText] = useState("");
   // const [deployed, setDeployed] = useState(false);
   // const [ipfsURL, setipfsURL] = useState('');
   const [isDeployed, setIsDeployed] = useState(false);
@@ -93,6 +93,7 @@ const Editor = () => {
     <div>
       <ReactQuill
         theme="snow"
+        placeholder="Type your contract here..."
         className="quill_editor"
         modules={modules}
         formats={formats}
