@@ -26,7 +26,7 @@ const Store = ({ children }) => {
   const [state, _setState] = useState(getInitalState());
 
   const getState = () => state;
-  const setState = (newState) => {
+  const setState = newState => {
     _setState({ contracts: newState });
     localStorage.setItem("contracts", JSON.stringify(newState));
   };
@@ -35,23 +35,23 @@ const Store = ({ children }) => {
     return contracts || initialState.contracts;
   };
 
-  const addContract = (contractHash, signers) =>
+  const addContract = (contractHash, signers) => {
     setState({ ...getCachedContracts(), [contractHash]: signers });
+  };
 
   const setSigningStatus = (keccakedContractHash, signer) => {
-    // debugger;
-    const id = utils.id;
     const keccak = utils.keccak256;
     const compareHash = (string) => keccak(utils.toUtf8Bytes(string));
-    // debugger;
-    const contractHash = Object.keys(getState().contracts).filter(
-      (key) => compareHash(key) === keccakedContractHash
+
+    const contractHash = Object.keys(getCachedContracts()).filter(
+      key => compareHash(key) === keccakedContractHash
     );
-    const currentContract = getState().contracts[contractHash];
     const cachedContracts = getCachedContracts();
+    const currentContract = cachedContracts[contractHash];
+    // debugger;
     const newState = {
       ...cachedContracts,
-      [contractHash]: currentContract.map((_signer) =>
+      [contractHash]: currentContract.map(_signer =>
         _signer.address.toLowerCase() === signer.toLowerCase()
           ? { ..._signer, signed: true }
           : _signer

@@ -57,6 +57,7 @@ const WalletStyle = styled.div`
 
 export const injectedConnector = new InjectedConnector({
   supportedChainIds: [
+    31337, // hardhat
     1, // Mainet
     3, // Ropsten
     4, // Rinkeby
@@ -65,7 +66,7 @@ export const injectedConnector = new InjectedConnector({
   ],
 });
 
-const getLibrary = (provider) => {
+const getLibrary = provider => {
   const library = new Web3Provider(provider);
   library.pollingInterval = 12000;
   return library;
